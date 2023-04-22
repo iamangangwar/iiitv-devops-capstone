@@ -9,7 +9,7 @@
     block:
     - name: Run Container
       docker_container:
-        name: website
+        name: test
         image: iamangangwar/iiitv-devops-capstone-test:latest
         state: started
         ports:
@@ -17,11 +17,11 @@
     rescue:
     - name: Remove Previous Container
       docker_container:
-        name: website
+        name: test
         state: absent
     - name: Run Container
       docker_container:
-        name: website
+        name: test
         image: iamangangwar/iiitv-devops-capstone-test:latest
         state: started
         ports:
