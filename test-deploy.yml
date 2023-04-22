@@ -2,27 +2,27 @@
   tasks:
   - name: Pull Docker Image
     docker_image:
-      name: iamangangwar/test:latest
+      name: iamangangwar/iiitv-devops-capstone-test:latest
       state: present
       source: pull
   - name: Run Container
     block:
     - name: Run Container
       docker_container:
-        name: test
-        image: iamangangwar/test:latest
+        name: website
+        image: iamangangwar/iiitv-devops-capstone-test:latest
         state: started
         ports:
           - "80:80"
     rescue:
     - name: Remove Previous Container
       docker_container:
-        name: test
+        name: website
         state: absent
     - name: Run Container
       docker_container:
-        name: test
-        image: iamangangwar/test:latest
+        name: website
+        image: iamangangwar/iiitv-devops-capstone-test:latest
         state: started
         ports:
           - "80:80"
