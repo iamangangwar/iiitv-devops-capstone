@@ -37,9 +37,6 @@ pipeline {
         }
         
         stage('Deploy on Test Server') {
-            when {
-                branch 'develop'
-            }
             stages {
                 stage('Run Ansible Playbook') {
                     steps {
